@@ -1,8 +1,10 @@
-SRC = main.cpp  addContact.cpp geters.cpp seters.cpp search.cpp
+SRC = main.cpp  AddContact.cpp Geters.cpp Seters.cpp GetContact.cpp
 
 NAME = phonebook
 
-OBJ = $(SRC:.c=.o)
+HEADER = PhoneBook.hpp
+
+OBJ = $(SRC:.cpp=.o)
 
 CC = c++
 
@@ -10,11 +12,8 @@ FLAGE = -Wall -Wextra -Werror  -std=c++98
 
 all : $(NAME)
 
-%.o: %.c 
-	$(CC) -c $< -o $@
-
-$(NAME) : $(OBJ) 
-		$(CC) $(FLAGE) $(SRC) -o $(NAME)
+$(NAME) : $(OBJ) $(HEADER)
+		$(CC) $(FLAGE) $(OBJ) -o $(NAME) 
 
 clean :
 	rm -rf $(OBJ)
@@ -22,6 +21,6 @@ clean :
 fclean : clean
 	rm -rf $(NAME)
 
-re : fclean $(NAME)
+re : fclean all
 
 .PHONY: all clean fclean re

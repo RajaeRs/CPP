@@ -6,7 +6,7 @@
 /*   By: rrasezin <rrasezin@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/06/16 00:18:08 by rrasezin          #+#    #+#             */
-/*   Updated: 2023/06/17 22:27:09 by rrasezin         ###   ########.fr       */
+/*   Updated: 2023/06/19 18:07:03 by rrasezin         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -24,8 +24,6 @@ class Contact
 		std::string	phone_number;
 		std::string	darkest_secret;
 	public :
-		Contact		(){}
-		~Contact	(){}
 		void 		setFirstName(std::string first_name);
 		void 		setLastName(std::string last_name);
 		void 		setNickName(std::string nick_name);
@@ -50,12 +48,10 @@ class PhoneBook
 		~PhoneBook	(){}
 		void		setCount(void);
 		void		setContact(void);
-		Contact	 	getContact(int i);
 		int			getCount(void);
-		Contact		add();
-		void		search();
-		
+		void		getContact(void);
 };
 
+Contact		add();
 
 #endif

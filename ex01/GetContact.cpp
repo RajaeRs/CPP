@@ -1,21 +1,16 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   search.cpp                                         :+:      :+:    :+:   */
+/*   GetContact.cpp                                     :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: rrasezin <rrasezin@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/06/16 17:04:44 by rrasezin          #+#    #+#             */
-/*   Updated: 2023/06/19 13:15:19 by rrasezin         ###   ########.fr       */
+/*   Updated: 2023/06/19 18:09:25 by rrasezin         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "phonebook.hpp"
-
-Contact PhoneBook::getContact(int i)
-{
-	return (this->contact[i]);
-}
+#include "PhoneBook.hpp"
 
 void	printPart(std::string str)
 {
@@ -48,15 +43,15 @@ void	desplayContact(Contact contact, int i)
 
 void	desplayInfo(Contact contact)
 {
-	std::cout << "\nFirst Name    :" << contact.getFirstName() << std::endl;
-	std::cout << "Last  Name    :" << contact.getLastName() << std::endl;
-	std::cout << "Nickname      :" << contact.getNickName() << std::endl;
-	std::cout << "Phone Number  :" << contact.getPhoneNumber() << std::endl;
-	std::cout << "Darkest Secret:" << contact.getDarkestSecret() << std::endl;
+	std::cout << "\nFirst Name     : " << contact.getFirstName() << std::endl;
+	std::cout << "Last  Name     : " << contact.getLastName() << std::endl;
+	std::cout << "Nickname       : " << contact.getNickName() << std::endl;
+	std::cout << "Phone Number   : " << contact.getPhoneNumber() << std::endl;
+	std::cout << "Darkest Secret : " << contact.getDarkestSecret() << std::endl;
 	return ;
 }
 
-void PhoneBook::search()
+void PhoneBook::getContact()
 {
 	Contact contact;
 	std::string strIndex;
@@ -65,7 +60,7 @@ void PhoneBook::search()
 	int		i;
 	
 	i = 0;
-	size = getCount();
+	size = this->count;
 	if (size > 0)
 	{
 		std::cout << "\n ----------+----------+----------+----------\n";
@@ -79,19 +74,23 @@ void PhoneBook::search()
 	}
 	while (i < size)
 	{
-		contact = PhoneBook::getContact(i);
+		contact = this->contact[i];
 		desplayContact(contact, i);
 		i++;
 	}
-	std::cout << "\n- Enter the Index : ";
+	std::cout << " ----------+----------+----------+----------\n";
+	std::cout << "\n Enter the Index : ";
 	std::cin >> strIndex;
+	if (std::cin.eof())
+		exit (1);
+
 	if (strIndex.length() == 1 && isdigit(strIndex[0]))
 	{
 		index = atoi(strIndex.c_str());
 		if (index > (size - 1))
 			std::cout << "\nWrong index" << std::endl;	
 		else
-			desplayInfo(PhoneBook::getContact(index));
+			desplayInfo(this->contact[index]);	
 	}
 	else
 		std::cout << "\nWrong index" << std::endl;

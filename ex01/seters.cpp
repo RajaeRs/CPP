@@ -6,11 +6,11 @@
 /*   By: rrasezin <rrasezin@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/06/16 00:20:33 by rrasezin          #+#    #+#             */
-/*   Updated: 2023/06/19 13:29:21 by rrasezin         ###   ########.fr       */
+/*   Updated: 2023/06/19 18:11:41 by rrasezin         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "phonebook.hpp"
+#include "PhoneBook.hpp"
 
 void Contact::setFirstName(std::string first_name)
 {

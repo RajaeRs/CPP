@@ -6,11 +6,11 @@
 /*   By: rrasezin <rrasezin@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/06/16 00:33:04 by rrasezin          #+#    #+#             */
-/*   Updated: 2023/06/19 13:17:31 by rrasezin         ###   ########.fr       */
+/*   Updated: 2023/06/19 18:10:01 by rrasezin         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "phonebook.hpp"
+#include "PhoneBook.hpp"
 
 int PhoneBook::getCount()
 {
@@ -24,7 +24,7 @@ void PhoneBook::setCount()
 }
 
 
-Contact	PhoneBook::add()
+Contact	add()
 {
 	Contact		contact;
 	std::string firstName;
@@ -72,9 +72,9 @@ void	PhoneBook::setContact()
 			this->contact[i] = this->contact[i + 1];
 			i++;
 		}
-		this->contact[i] = PhoneBook::add();
+		this->contact[i] = add();
 	}
 	else
-		this->contact[size] = PhoneBook::add();
+		this->contact[size] = add();
 	PhoneBook::setCount();
 }
