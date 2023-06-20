@@ -5,32 +5,25 @@
 /*                                                    +:+ +:+         +:+     */
 /*   By: rrasezin <rrasezin@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2023/06/16 16:44:40 by rrasezin          #+#    #+#             */
-/*   Updated: 2023/06/19 18:13:12 by rrasezin         ###   ########.fr       */
+/*   Created: 2023/06/19 18:36:37 by rrasezin          #+#    #+#             */
+/*   Updated: 2023/06/20 11:30:03 by rrasezin         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "PhoneBook.hpp"
+#include "Zombie.hpp"
 
-int	main()
+int main()
 {
-	PhoneBook phoneBook;
-	std::string action;
+	Zombie *myZombie;
+	Zombie randomZombie;
+	std::string name;
+	
+	name = "lol";
+	myZombie = Zombie().newZombie(name);
 
-	while (1)
-	{
-		std::cout << "\nEnter ADD, SEARCH or EXIT : ";
-		std::cin >> action;
-		if (strcmp(action.c_str(), "ADD") == 0)
-			phoneBook.setContact();
-		else if (strcmp(action.c_str(), "SEARCH") == 0)
-			phoneBook.getContact();
-		else if (strcmp(action.c_str(), "EXIT") == 0)
-			return (0);
-		else
-			std::cout << "\n[!] Not valid Action" << std::endl;	
-		if (std::cin.eof())
-			return (1);
-	}
+	name = "foo";
+	randomZombie.randomChump(name);
+	delete myZombie;
+
 	return (0);
 }

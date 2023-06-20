@@ -6,7 +6,7 @@
 /*   By: rrasezin <rrasezin@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/06/16 17:04:44 by rrasezin          #+#    #+#             */
-/*   Updated: 2023/06/19 18:09:25 by rrasezin         ###   ########.fr       */
+/*   Updated: 2023/06/20 10:52:31 by rrasezin         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -81,12 +81,10 @@ void PhoneBook::getContact()
 	std::cout << " ----------+----------+----------+----------\n";
 	std::cout << "\n Enter the Index : ";
 	std::cin >> strIndex;
-	if (std::cin.eof())
-		exit (1);
 
-	if (strIndex.length() == 1 && isdigit(strIndex[0]))
+	if (strIndex.length() == 1 && std::isdigit(strIndex[0]))
 	{
-		index = atoi(strIndex.c_str());
+		index = std::atoi(strIndex.c_str());
 		if (index > (size - 1))
 			std::cout << "\nWrong index" << std::endl;	
 		else
