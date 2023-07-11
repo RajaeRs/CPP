@@ -1,21 +1,38 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   randomChump.cpp                                    :+:      :+:    :+:   */
+/*   ZombieHorde.hpp                                    :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: rrasezin <rrasezin@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2023/06/19 18:47:09 by rrasezin          #+#    #+#             */
-/*   Updated: 2023/06/20 11:29:26 by rrasezin         ###   ########.fr       */
+/*   Created: 2023/06/19 18:36:59 by rrasezin          #+#    #+#             */
+/*   Updated: 2023/06/21 18:19:17 by rrasezin         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "Zombie.hpp"
+#ifndef ZOMBIEHORDE_HPP
+# define ZOMBIEHORDE_HPP
 
-void randomChump(std::string name)
+#include <iostream>
+
+class Zombie
 {
-	Zombie randomZombie(name);
-	randomZombie.announce();
+	private:
+		std::string	name;
+	public:
+		Zombie(){}
+		Zombie(std::string	name)
+		{
+			this->name = name;
+		}
+		~Zombie()
+		{
+			std::cout << name << " is destroyed" << std::endl;
+		}
+		void 		announce(void);
+};
 
-	return ;
-}
+Zombie*	zombieHorde(int N, std::string name);
+
+
+#endif

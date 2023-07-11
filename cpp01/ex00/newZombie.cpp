@@ -12,7 +12,12 @@
 
 #include "Zombie.hpp"
 
-Zombie *Zombie::newZombie(std::string name)
+Zombie *newZombie(std::string name)
 {
-	return new Zombie(name);
+	Zombie	*firstZombie;
+
+	firstZombie = new Zombie(name);
+	firstZombie->announce();
+
+	return firstZombie;
 }

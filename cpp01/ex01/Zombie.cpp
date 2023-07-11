@@ -1,21 +1,18 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   randomChump.cpp                                    :+:      :+:    :+:   */
+/*   Zombie.cpp                                         :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: rrasezin <rrasezin@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2023/06/19 18:47:09 by rrasezin          #+#    #+#             */
-/*   Updated: 2023/06/20 11:29:26 by rrasezin         ###   ########.fr       */
+/*   Created: 2023/06/19 18:46:18 by rrasezin          #+#    #+#             */
+/*   Updated: 2023/06/19 18:48:02 by rrasezin         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "Zombie.hpp"
+#include "ZombieHorde.hpp"
 
-void randomChump(std::string name)
+void	Zombie::announce(void)
 {
-	Zombie randomZombie(name);
-	randomZombie.announce();
-
-	return ;
+	std::cout << name << ": BraiiiiiiinnnzzzZ..." << std::endl;
 }

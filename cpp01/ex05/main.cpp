@@ -1,21 +1,21 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   randomChump.cpp                                    :+:      :+:    :+:   */
+/*   main.cpp                                           :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: rrasezin <rrasezin@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2023/06/19 18:47:09 by rrasezin          #+#    #+#             */
-/*   Updated: 2023/06/20 11:29:26 by rrasezin         ###   ########.fr       */
+/*   Created: 2023/07/10 21:09:54 by rrasezin          #+#    #+#             */
+/*   Updated: 2023/07/11 11:55:02 by rrasezin         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "Zombie.hpp"
+#include "Harl.hpp"
 
-void randomChump(std::string name)
+int main()
 {
-	Zombie randomZombie(name);
-	randomZombie.announce();
+    Harl test;
 
-	return ;
+    test.complain("DEBUG");
+    return (0);
 }

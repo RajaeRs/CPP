@@ -10,9 +10,19 @@
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "Zombie.hpp"
+#include "ZombieHorde.hpp"
 
-// Zombie *Zombie::zombieHorde(std::string name)
-// {
-// 	return new Zombie(name);
-// }
+Zombie* zombieHorde(int N, std::string name)
+{
+    Zombie  *hordeZombie;
+    int     i;
+
+    i = 0;
+    hordeZombie = new Zombie[N];
+    while (i < N)
+    {
+        hordeZombie[i] = Zombie(name);
+        i++;
+    }
+	return hordeZombie;
+}

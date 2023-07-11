@@ -1,8 +1,8 @@
-SRC = main.cpp  Zombie.cpp newZombie.cpp randomChump.cpp
+NAME = zombieHorde
 
-NAME = zombie
+HEADER = ZombieHorde.hpp 
 
-HEADER = Zombie.hpp 
+SRC = main.cpp  Zombie.cpp zombieHorde.cpp
 
 OBJ = $(SRC:.cpp=.o)
 
@@ -10,10 +10,10 @@ CC = c++
 
 FLAGE = -Wall -Wextra -Werror  -std=c++98
 
-all : $(NAME)
-
 $(NAME) : $(OBJ) $(HEADER)
-		$(CC) $(FLAGE) $(OBJ) -o $(NAME) 
+		$(CC) $(FLAGE) $(SRC) -o $(NAME) 
+
+all : $(NAME)
 
 clean :
 	rm -rf $(OBJ)

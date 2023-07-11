@@ -10,20 +10,23 @@
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "Zombie.hpp"
+#include "ZombieHorde.hpp"
 
 int main()
 {
-	Zombie *myZombie;
-	Zombie randomZombie;
+	Zombie 		*horde;
 	std::string name;
-	
-	name = "lol";
-	myZombie = Zombie().newZombie(name);
+	int			i;
 
-	name = "foo";
-	randomZombie.randomChump(name);
-	delete myZombie;
+	i = 0;
+	name = "Horde";
+	horde = zombieHorde(5, name);
 
+	while (i < 5)
+	{
+		horde[i].announce();
+		i++;
+	}
+	delete[] horde;
 	return (0);
 }

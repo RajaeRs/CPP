@@ -1,21 +1,28 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   randomChump.cpp                                    :+:      :+:    :+:   */
+/*   HumanB.cpp                                         :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: rrasezin <rrasezin@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2023/06/19 18:47:09 by rrasezin          #+#    #+#             */
-/*   Updated: 2023/06/20 11:29:26 by rrasezin         ###   ########.fr       */
+/*   Created: 2023/06/21 18:30:53 by rrasezin          #+#    #+#             */
+/*   Updated: 2023/07/10 16:45:13 by rrasezin         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "Zombie.hpp"
+#include "HumanB.hpp"
 
-void randomChump(std::string name)
+HumanB::HumanB(std::string name)
 {
-	Zombie randomZombie(name);
-	randomZombie.announce();
+    this->name = name;
+}
 
-	return ;
+void    HumanB::setWeapon(Weapon &weapon)
+{
+    this->weapon = &weapon;
+}
+
+void HumanB::attack()
+{
+    std::cout << this->name << " attacks with their " << this->weapon->getType() << std::endl;
 }

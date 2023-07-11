@@ -1,8 +1,8 @@
-NAME = zombie
+NAME = weapon
 
-HEADER = Zombie.hpp 
+HEADER = HumanA.hpp HumanB.hpp Weapon.hpp
 
-SRC = main.cpp  Zombie.cpp newZombie.cpp randomChump.cpp
+SRC = main.cpp  HumanA.cpp HumanB.cpp Weapon.cpp
 
 OBJ = $(SRC:.cpp=.o)
 

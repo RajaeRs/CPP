@@ -1,8 +1,6 @@
-NAME = zombie
+NAME = sedIsForLosers
 
-HEADER = Zombie.hpp 
-
-SRC = main.cpp  Zombie.cpp newZombie.cpp randomChump.cpp
+SRC = main.cpp
 
 OBJ = $(SRC:.cpp=.o)
 
@@ -10,8 +8,9 @@ CC = c++
 
 FLAGE = -Wall -Wextra -Werror  -std=c++98
 
-$(NAME) : $(OBJ) $(HEADER)
-		$(CC) $(FLAGE) $(SRC) -o $(NAME) 
+
+$(NAME) : $(OBJ)
+		$(CC) $(FLAGE) $(SRC) -o $(NAME)
 
 all : $(NAME)
 
