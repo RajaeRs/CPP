@@ -1,38 +1,23 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   megaphone.cpp                                      :+:      :+:    :+:   */
+/*   main.cpp                                           :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: rrasezin <rrasezin@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2023/06/15 23:01:23 by rrasezin          #+#    #+#             */
-/*   Updated: 2023/07/11 15:08:16 by rrasezin         ###   ########.fr       */
+/*   Created: 2023/07/11 12:30:59 by rrasezin          #+#    #+#             */
+/*   Updated: 2023/07/11 13:11:16 by rrasezin         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include <iostream>
+#include "Harl.hpp"
 
-int	main(int ac, char **av)
+int main(int ac, char **av)
 {
-	int i;
-	int	j;
-	char c;
+    Harl test;
 
-	if (ac == 1)
-	{
-		std::cout << "* LOUD AND UNBEARABLE FEEDBACK NOISE *" << '\n';
-		return 0;
-	}
-	for (i = 1 ; i < ac ; i++)
-	{
-		std::string name(av[i]);
-		for (j = 0; name[j]; j++)
-		{
-			c = std::toupper(name[j]);
-			std::cout << c ;
-		}
-		std::cout << ' ' ;
-	}
-	std::cout << '\n';
-	return (0);
+    if (ac != 2)
+        return (0);
+    test.complain(av[1]);
+    return (0);
 }

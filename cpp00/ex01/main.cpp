@@ -6,7 +6,7 @@
 /*   By: rrasezin <rrasezin@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/06/16 16:44:40 by rrasezin          #+#    #+#             */
-/*   Updated: 2023/06/20 10:57:12 by rrasezin         ###   ########.fr       */
+/*   Updated: 2023/07/11 15:45:00 by rrasezin         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -21,11 +21,11 @@ int	main()
 	{
 		std::cout << "\nEnter ADD, SEARCH or EXIT : ";
 		std::cin >> action;
-		if (strcmp(action.c_str(), "ADD") == 0)
+		if (action.compare("ADD") == 0)
 			phoneBook.setContact();
-		else if (strcmp(action.c_str(), "SEARCH") == 0)
+		else if (action.compare("SEARCH") == 0)
 			phoneBook.getContact();
-		else if (strcmp(action.c_str(), "EXIT") == 0)
+		else if (action.compare( "EXIT") == 0)
 			return (0);
 		else
 			std::cout << "\n[!] Not valid Action" << std::endl;	

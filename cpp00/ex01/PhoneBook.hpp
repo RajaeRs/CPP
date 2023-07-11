@@ -6,7 +6,7 @@
 /*   By: rrasezin <rrasezin@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/06/16 00:18:08 by rrasezin          #+#    #+#             */
-/*   Updated: 2023/06/21 18:19:46 by rrasezin         ###   ########.fr       */
+/*   Updated: 2023/07/11 15:23:19 by rrasezin         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -15,6 +15,7 @@
 
 #include <iostream>
 # define COUNT 8
+
 class Contact
 {
 	private:
