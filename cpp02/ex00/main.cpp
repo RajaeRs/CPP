@@ -1,33 +1,27 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   Zombie.cpp                                         :+:      :+:    :+:   */
+/*   main.cpp                                           :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: rrasezin <rrasezin@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2023/06/19 18:46:18 by rrasezin          #+#    #+#             */
-/*   Updated: 2023/07/12 15:46:31 by rrasezin         ###   ########.fr       */
+/*   Created: 2023/08/07 20:03:40 by rrasezin          #+#    #+#             */
+/*   Updated: 2023/08/07 20:08:38 by rrasezin         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "ZombieHorde.hpp"
+#include "Fixed.hpp"
 
-Zombie::Zombie(std::string	name)
+int main( void )
 {
-	this->name = name;
-}
+	Fixed a;
+	Fixed b( a );
+	Fixed c;
 
-Zombie::~Zombie()
-{
-	std::cout << name << " is destroyed" << std::endl;
-}
+	c = b;
+	std::cout << a.getRawBits() << std::endl;
+	std::cout << b.getRawBits() << std::endl;
+	std::cout << c.getRawBits() << std::endl;
 
-void	Zombie::announce(void)
-{
-	std::cout << name << ": BraiiiiiiinnnzzzZ..." << std::endl;
-}
-
-void Zombie::setZombie(std::string name)
-{
-	this->name = name;
+	return 0;
 }

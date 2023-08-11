@@ -6,7 +6,7 @@
 /*   By: rrasezin <rrasezin@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/06/19 18:46:51 by rrasezin          #+#    #+#             */
-/*   Updated: 2023/06/20 11:35:09 by rrasezin         ###   ########.fr       */
+/*   Updated: 2023/07/12 15:42:53 by rrasezin         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -21,7 +21,7 @@ Zombie* zombieHorde(int N, std::string name)
     hordeZombie = new Zombie[N];
     while (i < N)
     {
-        hordeZombie[i] = Zombie(name);
+        hordeZombie[i].setZombie(name);
         i++;
     }
 	return hordeZombie;
