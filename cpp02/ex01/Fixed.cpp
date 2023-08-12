@@ -6,7 +6,7 @@
 /*   By: rrasezin <rrasezin@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/08/09 12:50:00 by rrasezin          #+#    #+#             */
-/*   Updated: 2023/08/10 20:22:57 by rrasezin         ###   ########.fr       */
+/*   Updated: 2023/08/12 18:23:43 by rrasezin         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -52,13 +52,13 @@ Fixed::Fixed(const Fixed &copy)
 Fixed::Fixed (const int value)
 {
 	std::cout << "Int constructor called" << std::endl;
-    this->value = value << this->fractionalBit;
+    this->value = value << Fixed::fractionalBit;
 }
 
 Fixed::Fixed (const float value)
 {
 	std::cout << "Float constructor called" << std::endl;
-    this->value = roundf((value * myPow(2, this->fractionalBit)));
+    this->value = roundf((value * myPow(2, Fixed::fractionalBit)));
 }
 
 // distractors : ----------------------
@@ -71,7 +71,7 @@ float Fixed::toFloat(void) const
 {
     float   result;
 
-    result = (float)(this->value) / myPow(2, this->fractionalBit);
+    result = (float)(this->value) / myPow(2, Fixed::fractionalBit);
     return (result);
 }
 
@@ -79,7 +79,7 @@ int	Fixed::toInt(void) const
 {
 	int	result;
 
-	result = this->value >> this->fractionalBit;
+	result = this->value >> Fixed::fractionalBit;
 	return (result);
 }
 

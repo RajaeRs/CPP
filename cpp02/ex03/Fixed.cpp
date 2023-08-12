@@ -6,7 +6,7 @@
 /*   By: rrasezin <rrasezin@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/08/12 10:33:16 by rrasezin          #+#    #+#             */
-/*   Updated: 2023/08/12 15:48:29 by rrasezin         ###   ########.fr       */
+/*   Updated: 2023/08/12 18:26:50 by rrasezin         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -24,12 +24,12 @@ Fixed::Fixed(const Fixed &copy)
 }
 Fixed::Fixed (const int value)
 {
-    this->value = value << this->fractionalBit;
+    this->value = value << Fixed::fractionalBit;
 }
 
 Fixed::Fixed (const float value)
 {
-    this->value = roundf((value * myPow(2, this->fractionalBit)));
+    this->value = roundf((value * myPow(2, Fixed::fractionalBit)));
 }
 
 // set / get
@@ -50,7 +50,7 @@ float Fixed::toFloat(void) const
 {
     float   result;
 
-    result = (float)(this->value) / myPow(2, this->fractionalBit);
+    result = (float)(this->value) / myPow(2, Fixed::fractionalBit);
     return (result);
 }
 
@@ -117,7 +117,7 @@ Fixed Fixed::operator*(const Fixed &nb) const
 {
 	Fixed result;
 
-	result.setRawBits((this->value * nb.getRawBits()) >> result.fractionalBit);
+	result.setRawBits((this->value * nb.getRawBits()) >> Fixed::fractionalBit);
 	return (result);
 }
 
@@ -125,7 +125,7 @@ Fixed Fixed::operator/(const Fixed &nb) const
 {
 	Fixed result;
 
-	result.setRawBits((this->value << result.fractionalBit) / nb.getRawBits());
+	result.setRawBits((this->value << Fixed::fractionalBit) / nb.getRawBits());
 	return (result);
 }
 
@@ -159,7 +159,7 @@ int	Fixed::toInt(void) const
 {
 	int	result;
 
-	result = this->value >> this->fractionalBit;
+	result = this->value >> Fixed::fractionalBit;
 	return (result);
 }
 

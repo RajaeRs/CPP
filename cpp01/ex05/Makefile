@@ -10,6 +10,9 @@ CC = c++
 
 FLAGE = -Wall -Wextra -Werror -std=c++98
 
+%.o: %.cpp
+	$(CC) $(FLAGE) -c $< -o $@
+
 $(NAME) : $(OBJ) $(HEADER)
 		$(CC) $(FLAGE) $(SRC) -o $(NAME)
 
