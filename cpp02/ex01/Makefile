@@ -8,13 +8,13 @@ OBJ = $(SRC:.cpp=.o)
 
 CC = c++
 
-FLAGE = -Wall -Wextra -Werror -std=c++98
+CXXFLAGS = -Wall -Wextra -Werror -std=c++98
 
 %.o: %.cpp
-	$(CC) $(FLAGE) -c $< -o $@
+	$(CC) $(CXXFLAGS) -c $< -o $@
 
 $(NAME) : $(OBJ) $(HEADER)
-			$(CC) $(FLAGE) $(SRC) -o $(NAME)
+			$(CC) $(CXXFLAGS) $(SRC) -o $(NAME)
 
 all: $(NAME)
 
