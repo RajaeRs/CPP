@@ -6,7 +6,7 @@
 /*   By: rrasezin <rrasezin@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/08/15 09:49:13 by rrasezin          #+#    #+#             */
-/*   Updated: 2023/08/15 12:16:46 by rrasezin         ###   ########.fr       */
+/*   Updated: 2023/08/15 13:16:43 by rrasezin         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -24,6 +24,7 @@ ClapTrap::ClapTrap()
 
 ClapTrap::ClapTrap(std::string name)
 {
+	std::cout << "Constructor called" << std::endl;
     this->Name = name;
     HitPoints = 10;
     EnergyPoints = 10;
@@ -78,7 +79,37 @@ const std::string ClapTrap::getName() const
 }
 
 // game state
-// void    ClapTrap::attack(const std::string& target)
-// {
-    
-// }
+void    ClapTrap::attack(const std::string& target)
+{
+    if (this->getHitPoints() == 0 || this->getEnergyPoints() == 0)
+    {
+        std::cout << "No Energy/Hit Points left! x_x" << std::endl;
+    	return ;
+    }
+	this->HitPoints--;
+	this->EnergyPoints--;
+	std::cout << "ClapTrap " << this->getName() << " attack " << target << ", causing " << 1 << " points of damage!" << std::endl;
+}
+
+void	ClapTrap::takeDamage(unsigned int amount)
+{
+	if (this->getHitPoints() == 0 || this->getEnergyPoints() == 0)
+    {
+        std::cout << "No Energy/Hit Points left! x_x" << std::endl;
+    	return ;
+    }
+	this->AttackDamage += amount;
+    std::cout << this->getName() << " take " << amount << " points of Damage" << " ~_~" << std::endl;
+}
+
+void	ClapTrap::beRepaired(unsigned int amount)
+{
+	if (this->getHitPoints() == 0 || this->getEnergyPoints() == 0)
+    {
+        std::cout << "No Energy/Hit Points left! x_x" << std::endl;
+    	return ;
+    }
+	this->HitPoints += amount;
+	this->EnergyPoints--;
+	std::cout << this->getName() << " repear it's self, " << amount << " points got" << std::endl;
+}
