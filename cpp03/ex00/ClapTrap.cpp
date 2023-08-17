@@ -6,7 +6,7 @@
 /*   By: rrasezin <rrasezin@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/08/15 09:49:13 by rrasezin          #+#    #+#             */
-/*   Updated: 2023/08/17 12:02:14 by rrasezin         ###   ########.fr       */
+/*   Updated: 2023/08/17 16:09:41 by rrasezin         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -118,9 +118,9 @@ void	ClapTrap::takeDamage(unsigned int amount)
         std::cout << "ClapTrap : No Energy/Hit Points left! x_x" << std::endl;
     	return ;
     }
-    if (this->getHitPoints() < (unsigned int)amount)
+    if (this->getHitPoints() < amount)
     {
-        amount = this->HitPoints - (this->HitPoints - amount);
+        amount = this->HitPoints;
         this->HitPoints = 0;
     }
     else

@@ -6,7 +6,7 @@
 /*   By: rrasezin <rrasezin@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/08/15 15:39:56 by rrasezin          #+#    #+#             */
-/*   Updated: 2023/08/17 12:09:51 by rrasezin         ###   ########.fr       */
+/*   Updated: 2023/08/17 16:11:57 by rrasezin         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -24,7 +24,7 @@ int main()
 
     
     mario.attack("miro");
-    mario.takeDamage(20);
+    mario.takeDamage(2);
     mario.attack("miro");
     mario.attack("miro");
     mario.takeDamage(100);
