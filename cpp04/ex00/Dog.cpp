@@ -6,7 +6,7 @@
 /*   By: rrasezin <rrasezin@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/08/18 12:03:03 by rrasezin          #+#    #+#             */
-/*   Updated: 2023/08/18 12:09:00 by rrasezin         ###   ########.fr       */
+/*   Updated: 2023/08/18 12:36:38 by rrasezin         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -36,7 +36,7 @@ std::string Dog::getType(void) const
 	return (this->type);
 }
 
-void	Dog::makeSound(void)
+void	Dog::makeSound(void) const
 {
 	std::cout << "Barking!" << std::endl;
 }

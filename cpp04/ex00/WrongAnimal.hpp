@@ -1,26 +1,28 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   Dog.hpp                                            :+:      :+:    :+:   */
+/*   WrongAnimal.hpp                                    :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: rrasezin <rrasezin@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2023/08/18 12:03:15 by rrasezin          #+#    #+#             */
-/*   Updated: 2023/08/18 12:36:19 by rrasezin         ###   ########.fr       */
+/*   Created: 2023/08/18 11:09:18 by rrasezin          #+#    #+#             */
+/*   Updated: 2023/08/22 16:55:34 by rrasezin         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #pragma once
 
-#include "Animal.hpp"
+#include <iostream>
 
-class   Dog : public Animal
+class   WrongAnimal
 {
-    public:
-        Dog();
-        Dog(const Dog& copy);
-        Dog& operator=(const Dog& assignement);
-        std::string getType(void) const;
-        void    makeSound(void) const;
-        ~Dog();
+    protected :
+        std::string type;
+	public :
+		WrongAnimal();
+		WrongAnimal(const WrongAnimal& copy);
+		WrongAnimal& operator=(const WrongAnimal& assignement);
+		std::string	getType(void) const;
+		void	makeSound(void) const;
+		~WrongAnimal();
 };
