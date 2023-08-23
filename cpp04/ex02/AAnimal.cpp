@@ -1,47 +1,47 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   WrongAnimal.cpp                                    :+:      :+:    :+:   */
+/*   AAnimal.cpp                                        :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: rrasezin <rrasezin@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/08/18 11:04:34 by rrasezin          #+#    #+#             */
-/*   Updated: 2023/08/22 13:35:15 by rrasezin         ###   ########.fr       */
+/*   Updated: 2023/08/23 21:29:38 by rrasezin         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "WrongAnimal.hpp"
+#include "AAnimal.hpp"
 
-WrongAnimal::WrongAnimal()
+AAnimal::AAnimal()
 {
-    std::cout << "WrongAnimal default constructor is called" << std::endl;
-    type = "WrongAnimal";
+    std::cout << "AAnimal default constructor is called" << std::endl;
+    type = "AAnimal";
 }
 
-WrongAnimal::WrongAnimal(const WrongAnimal& copy)
+AAnimal::AAnimal(const AAnimal& copy)
 {
-    std::cout << "WrongAnimal copy constructor is called" << std::endl;
+    std::cout << "AAnimal copy constructor is called" << std::endl;
     this->type = copy.getType();
 }
 
-WrongAnimal& WrongAnimal::operator=(const WrongAnimal& assignement)
+AAnimal& AAnimal::operator=(const AAnimal& assignement)
 {
-    std::cout << "WrongAnimal copy assignement is called" << std::endl;
+    std::cout << "AAnimal copy assignement is called" << std::endl;
     this->type= assignement.getType();
     return (*this);
 }
 
-WrongAnimal::~WrongAnimal()
+AAnimal::~AAnimal()
 {
-    std::cout << "WrongAnimal Destructor is called" << std::endl;
+    std::cout << "AAnimal Class is destroyed" << std::endl;
 }
 
-std::string    WrongAnimal::getType(void) const
+std::string    AAnimal::getType(void) const
 {
     return(this->type);
 }
 
-void    WrongAnimal::makeSound(void) const
-{
-    std::cout << "I'm the wrong Animal Sound" << std::endl;
-}
+// void    AAnimal::makeSound(void) const
+// {
+//     std::cout << "I can't speak" << std::endl;
+// }

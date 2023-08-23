@@ -1,26 +1,31 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   WrongCat.hpp                                       :+:      :+:    :+:   */
+/*   Dog.hpp                                            :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: rrasezin <rrasezin@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2023/08/18 11:37:58 by rrasezin          #+#    #+#             */
-/*   Updated: 2023/08/22 16:55:52 by rrasezin         ###   ########.fr       */
+/*   Created: 2023/08/18 12:03:15 by rrasezin          #+#    #+#             */
+/*   Updated: 2023/08/23 21:26:11 by rrasezin         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #pragma once
 
-#include "WrongAnimal.hpp"
+#include "AAnimal.hpp"
+#include "Brain.hpp"
 
-class   WrongCat : public WrongAnimal
+class   Dog : public AAnimal
 {
+    private:
+        Brain* dogBrain;
     public:
-        WrongCat();
-        WrongCat(const WrongCat& copy);
-        WrongCat& operator=(const WrongCat& assignement);
+        Dog();
+        Dog(std::string name, int nb);
+        Dog(const Dog& copy);
+        Dog& operator=(const Dog& assignement);
         std::string getType(void) const;
         void    makeSound(void) const;
-        ~WrongCat();
+        void    printIdeas(void) const;
+        ~Dog();
 };
