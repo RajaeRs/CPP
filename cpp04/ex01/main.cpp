@@ -6,7 +6,7 @@
 /*   By: rrasezin <rrasezin@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/08/18 11:22:35 by rrasezin          #+#    #+#             */
-/*   Updated: 2023/08/23 11:54:41 by rrasezin         ###   ########.fr       */
+/*   Updated: 2023/08/23 12:46:34 by rrasezin         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -45,14 +45,11 @@ int main()
     // delete j;//should not create a leak
     // delete i;
     
-    // Dog doog;
     Dog dog1("crezy Dog", 100);
     Dog dog2(dog1);
-    // doog.printIdeas();
     dog1.printIdeas();
     dog2.printIdeas();
 
-    // dooog = doog;
 
     return (0);
 }

@@ -6,7 +6,7 @@
 /*   By: rrasezin <rrasezin@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/08/18 11:09:18 by rrasezin          #+#    #+#             */
-/*   Updated: 2023/08/22 20:46:12 by rrasezin         ###   ########.fr       */
+/*   Updated: 2023/08/23 12:17:56 by rrasezin         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -21,7 +21,7 @@ class   Animal
 	public :
 		Animal();
 		Animal(const Animal& copy);
-		virtual Animal& operator=(const Animal& assignement);
+		Animal& operator=(const Animal& assignement);
 		std::string	getType(void) const;
 		virtual void	makeSound(void) const;
 		virtual ~Animal();
