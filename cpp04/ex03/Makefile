@@ -1,8 +1,8 @@
 NAME = AMateria
 
-HEADER = AMateria.hpp Ice.hpp Cure.hpp
+HEADER = AMateria.hpp Ice.hpp Cure.hpp ICharacter.hpp Character.hpp IMateriaSource.hpp MateriaSource.hpp
 
-SRC = main.cpp AMateria.cpp Ice.cpp Cure.cpp
+SRC = main.cpp AMateria.cpp Ice.cpp Cure.cpp Character.cpp MateriaSource.cpp SaveAddress.cpp
 
 OBJ = $(SRC:.cpp=.o)
 

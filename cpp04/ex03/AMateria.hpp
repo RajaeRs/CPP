@@ -6,13 +6,16 @@
 /*   By: rrasezin <rrasezin@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/08/24 16:18:19 by rrasezin          #+#    #+#             */
-/*   Updated: 2023/08/25 11:17:00 by rrasezin         ###   ########.fr       */
+/*   Updated: 2023/08/26 12:03:19 by rrasezin         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #pragma once
 
 #include <iostream>
+#include "ICharacter.hpp"
+
+class	ICharacter;
 
 class   AMateria
 {
@@ -25,6 +28,6 @@ class   AMateria
 		AMateria& operator=(const AMateria& assignement);
 		std::string const& getType() const;
 		virtual AMateria* clone() const = 0;
-		// virtual void use(ICharacter& target);
-		~AMateria();
+		virtual void use(ICharacter& target);
+		virtual ~AMateria();
 };

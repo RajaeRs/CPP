@@ -6,7 +6,7 @@
 /*   By: rrasezin <rrasezin@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/08/25 11:34:50 by rrasezin          #+#    #+#             */
-/*   Updated: 2023/08/25 12:16:56 by rrasezin         ###   ########.fr       */
+/*   Updated: 2023/08/26 10:52:10 by rrasezin         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -14,6 +14,8 @@
 
 #include <iostream>
 #include "AMateria.hpp"
+
+class   AMateria;
 
 class   ICharacter
 {

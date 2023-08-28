@@ -6,7 +6,7 @@
 /*   By: rrasezin <rrasezin@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/08/25 11:47:23 by rrasezin          #+#    #+#             */
-/*   Updated: 2023/08/25 12:46:53 by rrasezin         ###   ########.fr       */
+/*   Updated: 2023/08/28 13:24:13 by rrasezin         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -15,13 +15,23 @@
 #include <iostream>
 #include "ICharacter.hpp"
 
+typedef	struct	s_floor
+{
+	AMateria		*save;
+	struct s_floor *next;
+	
+}				t_floor;
+
 class   Character : public ICharacter
 {
 	private :
         std::string	Name;
+        t_floor		*SaveAddress;
+		t_floor 		*new_address(AMateria *new_);
+		void			add_back(t_floor **old, t_floor *new_);
+		void			freeFloor(t_floor *save);
     protected :
-        AMateria	**slot;
-        int			idx;
+        AMateria	**inventory;
     public :
         Character();
         Character(std::string Name);
@@ -32,4 +42,4 @@ class   Character : public ICharacter
         void    unequip(int idx);
         void    use(int idx, ICharacter& target);
         ~Character();
-}
+};
