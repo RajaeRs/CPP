@@ -6,7 +6,7 @@
 /*   By: rrasezin <rrasezin@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/08/18 11:04:34 by rrasezin          #+#    #+#             */
-/*   Updated: 2023/08/23 21:29:38 by rrasezin         ###   ########.fr       */
+/*   Updated: 2023/08/24 10:14:17 by rrasezin         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -14,7 +14,7 @@
 
 AAnimal::AAnimal()
 {
-    std::cout << "AAnimal default constructor is called" << std::endl;
+    std::cout << "AAnimal default constructor called" << std::endl;
     type = "AAnimal";
 }
 

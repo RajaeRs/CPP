@@ -6,7 +6,7 @@
 /*   By: rrasezin <rrasezin@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/08/22 17:15:04 by rrasezin          #+#    #+#             */
-/*   Updated: 2023/08/23 21:26:05 by rrasezin         ###   ########.fr       */
+/*   Updated: 2023/08/24 10:23:33 by rrasezin         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -14,7 +14,7 @@
 
 Brain::Brain()
 {
-    std::cout << "Brain constructor called" << std::endl;
+    std::cout << "Brain default constructor called" << std::endl;
 }
 
 Brain::Brain(const Brain& copy)
@@ -42,7 +42,7 @@ Brain& Brain::operator=(const Brain& assignement)
 
 Brain::~Brain()
 {
-	std::cout << "Brain Destructor is called" << std::endl;
+	std::cout << "Brain Destructor called" << std::endl;
 }
 
 void	Brain::setIdeas(std::string AAnimal, int nb)

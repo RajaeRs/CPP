@@ -6,7 +6,7 @@
 /*   By: rrasezin <rrasezin@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/08/24 16:18:15 by rrasezin          #+#    #+#             */
-/*   Updated: 2023/08/28 13:33:48 by rrasezin         ###   ########.fr       */
+/*   Updated: 2023/08/28 14:49:33 by rrasezin         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -35,7 +35,7 @@ int main()
     me->use(0, *bob);
     me->use(1, *bob);
 
-    me->unequip(3);
+    me->unequip(0);
     me->unequip(1);
     
     delete bob;

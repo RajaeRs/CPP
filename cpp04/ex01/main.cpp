@@ -6,7 +6,7 @@
 /*   By: rrasezin <rrasezin@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/08/18 11:22:35 by rrasezin          #+#    #+#             */
-/*   Updated: 2023/08/23 21:23:56 by rrasezin         ###   ########.fr       */
+/*   Updated: 2023/08/24 16:13:37 by rrasezin         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -40,14 +40,14 @@ int main()
     
     arrayOfAnimals();
     
-    delete j;//should not create a leak
-    delete i;
-    
-    Dog dog1("crezy Dog", 100);
+    Dog dog1("ROW Dog", 100);
     Dog dog2(dog1);
+
     dog1.printIdeas();
     dog2.printIdeas();
 
+    delete j;//should not create a leak
+    delete i;
 
     return (0);
 }
