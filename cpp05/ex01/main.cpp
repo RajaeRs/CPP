@@ -6,29 +6,25 @@
 /*   By: rrasezin <rrasezin@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/09/15 10:32:59 by rrasezin          #+#    #+#             */
-/*   Updated: 2023/09/15 20:13:37 by rrasezin         ###   ########.fr       */
+/*   Updated: 2023/09/18 12:10:24 by rrasezin         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "Bureaucrat.hpp"
+#include "Form.hpp"
 
 int main()
 {
     try
     {
-        Bureaucrat test;
-        test.decrementBureaucratGarde();
-        std::cout << test << std::endl;
-    }
-    catch(const char * err)
-    {
-        std::cout << err << std::endl;
-    }
-    try
-    {
-        Bureaucrat test2("Dark", 100);
-        test2.incrementBureaucratGarde();
-        std::cout << test2 << std::endl;
+        Bureaucrat dark("Dark", 100);
+        dark.incrementBureaucratGarde();
+        // try
+        // {
+            Form miniForm("miniForm", 120, 100);
+            miniForm.beSigned(dark);
+            std::cout << dark << std::endl;
+        // }
     }
     catch(const char * err)
     {

@@ -6,7 +6,7 @@
 /*   By: rrasezin <rrasezin@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/09/14 17:25:24 by rrasezin          #+#    #+#             */
-/*   Updated: 2023/09/15 20:11:34 by rrasezin         ###   ########.fr       */
+/*   Updated: 2023/09/18 12:15:04 by rrasezin         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -65,6 +65,15 @@ void    Bureaucrat::decrementBureaucratGarde(void)
     if (this->getGrade() >= 150)
         throw "\nBureaucrat::GradeTooLowException.\n";
     this->grade = this->getGrade() + 1;
+}
+
+void    Bureaucrat::signForm(std::string name, bool signe, std::string message) const
+{
+    std::cout << "\n mmmmmmmm \n" << std::endl;
+    if (signe)
+        std::cout << this->name << " signed " << name << "." << std::endl;
+    else
+        std::cout << this->name << " couldn’t sign " << name << " because " << message << "." << std::endl;
 }
 
 Bureaucrat::~Bureaucrat()

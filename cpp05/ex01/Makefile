@@ -1,14 +1,14 @@
-NAME =  Bureaucrat
+NAME =  BureaucratForm
 
-HEADER = Bureaucrat.hpp
+HEADER = Bureaucrat.hpp Form.hpp
 
-SRC = main.cpp Bureaucrat.cpp
+SRC = main.cpp Bureaucrat.cpp Form.cpp
 
 OBJ = $(SRC:.cpp=.o)
 
 CC = c++
 
-CXXFLAGES = -Wall -Wextra -Werror -std=c++98
+CXXFLAGES = -Wall -Wextra -Werror -std=c++98 -fsanitize=address -g
 
 %.o: %.cpp
 	$(CC) $(CXXFLAGES) -c $< -o $@
