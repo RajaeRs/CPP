@@ -1,12 +1,12 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   Form.hpp                                           :+:      :+:    :+:   */
+/*   AForm.hpp                                          :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: rrasezin <rrasezin@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/09/16 19:11:02 by rrasezin          #+#    #+#             */
-/*   Updated: 2023/09/19 22:04:22 by rrasezin         ###   ########.fr       */
+/*   Updated: 2023/09/20 00:18:40 by rrasezin         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -17,45 +17,47 @@
 
 class	Bureaucrat;
 
-class	Form
+class	AForm
 {
 	private:
 		const std::string	name;
 		bool				signe;
-		const int			formGrade;
+		const int			FormGrade;
 		const int			bureaucratGrade;
 	public:
-		Form();
-		Form(std::string name, int formGrade, int bureaucratGrade);
-		Form(const Form& copy);
-		Form& operator=(const Form& assignement);
-		std::string	getName(void) const;
-		bool		getSigne(void) const;
-		int			getFormGrade(void) const;
-		int 		getBureaucratGarde(void) const;
-		void		beSigned(const Bureaucrat& brct);
-		class		AlreadySigned;
-		class		GradeTooHighException;
-		class		GradeTooLowException;
-		~Form();
+		AForm();
+		AForm(std::string name, int FormGrade, int bureaucratGrade);
+		AForm(const AForm& copy);
+		AForm& operator=(const AForm& assignement);
+		void			setSigne(bool signe);
+		std::string		getName(void) const;
+		bool			getSigne(void) const;
+		int				getAFormGrade(void) const;
+		int 			getBureaucratGarde(void) const;
+		void			beSigned(const Bureaucrat& brct);
+		class			AlreadySigned;
+		class			GradeTooHighException;
+		class			GradeTooLowException;
+		virtual void	execute(Bureaucrat const & executor) const = 0;
+		virtual	~AForm();
 };
 
-class	Form::GradeTooHighException : public std::exception
+class	AForm::GradeTooHighException : public std::exception
 {
 	public :
 		const char * what() const throw();
 };
 
-class	Form::GradeTooLowException : public std::exception
+class	AForm::GradeTooLowException : public std::exception
 {
 	public :
 		const char * what() const throw();
 };
 
-class	Form::AlreadySigned : public std::exception
+class	AForm::AlreadySigned : public std::exception
 {
 	public :
 		const char *checkSigne() const;
 };
 
-std::ostream& operator<<(std::ostream& stream , const Form& f);
+std::ostream& operator<<(std::ostream& stream , const AForm& f);

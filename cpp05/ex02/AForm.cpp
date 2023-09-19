@@ -1,94 +1,99 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   Form.cpp                                           :+:      :+:    :+:   */
+/*   AForm.cpp                                          :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: rrasezin <rrasezin@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/09/16 19:24:34 by rrasezin          #+#    #+#             */
-/*   Updated: 2023/09/19 22:23:33 by rrasezin         ###   ########.fr       */
+/*   Updated: 2023/09/20 00:13:42 by rrasezin         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "Form.hpp"
+#include "AForm.hpp"
 
-Form::Form() : name("Form") , formGrade(150) , bureaucratGrade(100)
+AForm::AForm() : name("AForm") , FormGrade(150) , bureaucratGrade(100)
 {
 	this->signe = false;
 }
 
-Form::Form(std::string name, int fGrade, int bGrade) : name(name) , formGrade(fGrade) , bureaucratGrade (bGrade)
+AForm::AForm(std::string name, int fGrade, int bGrade) : name(name) , FormGrade(fGrade) , bureaucratGrade (bGrade)
 {
 	if (fGrade > 150 || bGrade > 150)
-		throw Form::GradeTooLowException();
+		throw AForm::GradeTooLowException();
 	if (fGrade < 1 || bGrade < 1)
-		throw Form::GradeTooHighException();
+		throw AForm::GradeTooHighException();
 	this->signe = false;
 }
 
-Form::Form(const Form& copy) : name(copy.getName()) , formGrade(copy.getFormGrade()) , bureaucratGrade(copy.getBureaucratGarde())
+AForm::AForm(const AForm& copy) : name(copy.getName()) , FormGrade(copy.getAFormGrade()) , bureaucratGrade(copy.getBureaucratGarde())
 {
 	this->signe = copy.getSigne();
 }
 
-Form& Form::operator=(const Form& assignement)
+AForm& AForm::operator=(const AForm& assignement)
 {
 	this->signe = assignement.getSigne();
 	return (*this);
 }
 
-std::string Form::getName(void) const
+std::string AForm::getName(void) const
 {
 	return(this->name);
 }
 
-bool    Form::getSigne(void) const
+bool    AForm::getSigne(void) const
 {
 	return(this->signe);
 }
 
-int Form::getFormGrade(void) const
+int AForm::getAFormGrade(void) const
 {
-	return(this->formGrade);
+	return(this->FormGrade);
 }
 
-int Form::getBureaucratGarde(void) const
+int AForm::getBureaucratGarde(void) const
 {
 	return(this->bureaucratGrade);
 }
 
-void    Form::beSigned(const Bureaucrat& brct)
+void	AForm::setSigne(bool signe)
+{
+	this->signe = signe;
+}
+
+void    AForm::beSigned(const Bureaucrat& brct)
 {
 	if (this->signe == true)
 	{
-		brct.signForm(this->name, false, "this form is signed");
-		throw Form::AlreadySigned();
+		brct.signForm(this->name, false, "this AForm is signed");
+		throw AForm::AlreadySigned();
 	}
 	if (brct.getGrade() > this->getBureaucratGarde())
 	{
 		brct.signForm(this->name, false, "Bureaucrat grad too low");
-		throw Form::GradeTooLowException();
+		throw AForm::GradeTooLowException();
 	}
 	this->signe = true;
 	brct.signForm(this->name, true, "");
 }
 
-const char *Form::AlreadySigned::checkSigne() const
+const char *AForm::AlreadySigned::checkSigne() const
 {
 	return "Exception : Already Signed.";
 }
 
-const char *Form::GradeTooHighException::what() const throw()
+const char *AForm::GradeTooHighException::what() const throw()
 {
 	return "Exception : Grade Too High Exception";
 }
 
-const char *Form::GradeTooLowException::what() const throw()
+const char *AForm::GradeTooLowException::what() const throw()
 {
 	return "Exception : Grade Too Low Exception";
 }
 
-std::ostream& operator<<(std::ostream &stream, const Form& f)
+std::ostream& operator<<(std::ostream &stream, const AForm& f)
 {
 	std::string signe;
 
@@ -99,15 +104,15 @@ std::ostream& operator<<(std::ostream &stream, const Form& f)
 		
 	stream	<< " ------------------------------------\n"
 			<< "| Name : " << f.getName() << "\n"
-			<< "| Grade required to sign it : " << f.getFormGrade() << "\n"
+			<< "| Grade required to sign it : " << f.getAFormGrade() << "\n"
 			<< "| Grade required to execute it : " << f.getBureaucratGarde() << "\n"
 			<< "| Signe : " << signe << "\n"
 			<< " ------------------------------------" ;
 	return stream;
 }
 
-Form::~Form()
+AForm::~AForm()
 {
-	std::cout << "Form desatructor called" << std::endl;
+	std::cout << "AForm desatructor called" << std::endl;
 }
  

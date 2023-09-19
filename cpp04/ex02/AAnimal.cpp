@@ -6,7 +6,7 @@
 /*   By: rrasezin <rrasezin@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/08/18 11:04:34 by rrasezin          #+#    #+#             */
-/*   Updated: 2023/08/24 10:14:17 by rrasezin         ###   ########.fr       */
+/*   Updated: 2023/09/19 23:15:54 by rrasezin         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -40,8 +40,3 @@ std::string    AAnimal::getType(void) const
 {
     return(this->type);
 }
-
-// void    AAnimal::makeSound(void) const
-// {
-//     std::cout << "I can't speak" << std::endl;
-// }

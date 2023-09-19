@@ -6,16 +6,16 @@
 /*   By: rrasezin <rrasezin@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/09/14 17:13:17 by rrasezin          #+#    #+#             */
-/*   Updated: 2023/09/19 18:53:07 by rrasezin         ###   ########.fr       */
+/*   Updated: 2023/09/19 23:02:58 by rrasezin         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #pragma once
 
 #include <iostream>
-#include "Form.hpp"
+#include "AForm.hpp"
 
-class	Form;
+class	AForm;
 
 class   Bureaucrat
 {
