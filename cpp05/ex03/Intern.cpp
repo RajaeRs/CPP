@@ -6,7 +6,7 @@
 /*   By: rrasezin <rrasezin@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/09/21 13:10:16 by rrasezin          #+#    #+#             */
-/*   Updated: 2023/09/21 15:20:03 by rrasezin         ###   ########.fr       */
+/*   Updated: 2023/09/21 15:26:44 by rrasezin         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -52,7 +52,7 @@ AForm*	Intern::makeForm(std::string name, std::string target)
         i++;
     if (i >= 3)
         throw Intern::FormNotFound();
-    std::cout << "Intern creates " << formName[i] << std::endl;
+    std::cout << "Intern creates : " << formName[i] << std::endl;
     return ((this->*forms[i])(target));
 }
 

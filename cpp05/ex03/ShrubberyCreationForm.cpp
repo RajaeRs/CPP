@@ -6,18 +6,18 @@
 /*   By: rrasezin <rrasezin@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/09/19 22:52:49 by rrasezin          #+#    #+#             */
-/*   Updated: 2023/09/20 16:30:43 by rrasezin         ###   ########.fr       */
+/*   Updated: 2023/09/21 15:28:14 by rrasezin         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "ShrubberyCreationForm.hpp"
 
-ShrubberyCreationForm::ShrubberyCreationForm() : AForm("shrubbery", 72, 137)
+ShrubberyCreationForm::ShrubberyCreationForm() : AForm("shrubbery", 145, 137)
 {
     this->setSigne(false);
 }
 
-ShrubberyCreationForm::ShrubberyCreationForm(std::string name) : AForm(name, 72, 137)
+ShrubberyCreationForm::ShrubberyCreationForm(std::string name) : AForm(name, 145, 137)
 {
     this->setSigne(false);
 }
