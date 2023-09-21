@@ -1,20 +1,57 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   test.cpp                                           :+:      :+:    :+:   */
+/*   ShrubberyCreationForm.cpp                          :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: rrasezin <rrasezin@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2023/09/20 00:29:21 by rrasezin          #+#    #+#             */
-/*   Updated: 2023/09/20 00:34:03 by rrasezin         ###   ########.fr       */
+/*   Created: 2023/09/19 22:52:49 by rrasezin          #+#    #+#             */
+/*   Updated: 2023/09/20 16:30:43 by rrasezin         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include <iostream>
+#include "ShrubberyCreationForm.hpp"
 
-int main()
+ShrubberyCreationForm::ShrubberyCreationForm() : AForm("shrubbery", 72, 137)
 {
-    std::cout << "        ; ; ;\n"
+    this->setSigne(false);
+}
+
+ShrubberyCreationForm::ShrubberyCreationForm(std::string name) : AForm(name, 72, 137)
+{
+    this->setSigne(false);
+}
+
+ShrubberyCreationForm::ShrubberyCreationForm(const ShrubberyCreationForm& copy) : AForm(copy)
+{
+	this->setSigne(copy.getSigne());
+}
+
+ShrubberyCreationForm& ShrubberyCreationForm::operator=(const ShrubberyCreationForm& assignement)
+{
+	this->setSigne(assignement.getSigne());
+    return (*this);
+}
+
+ShrubberyCreationForm::~ShrubberyCreationForm(){};
+
+void    ShrubberyCreationForm::execute(Bureaucrat const & executor) const
+{
+    std::ofstream   shrubbery;
+    std::string     treeName;
+
+    treeName = executor.getName() + "_" + "shrubbery";
+    if (!this->getSigne())
+        throw ShrubberyCreationForm::NotSigned();
+    if (this->getBureaucratGarde() < executor.getGrade())
+        throw ShrubberyCreationForm::GradeTooLowException();
+    shrubbery.open(treeName);
+    if (!shrubbery.is_open())
+    {
+        throw ShrubberyCreationForm::TreeCreationFailed();
+    }
+    shrubbery << "\n"
+            << "        ; ; ;\n"
             << "      ;        ;  ;     ;;    ;\n"
             << "   ;                 ;         ;  ;\n"
             << "                   ;\n"
@@ -34,5 +71,12 @@ int main()
             << "       ;  ; ;;    Y7'.'     ;  ;\n"
             << "                 :@):.\n"
             << "                .:@:'.\n"
-            << "              .::(@:.\n";
+            << "              .::(@:."
+            << std::endl;
+    shrubbery.close();
+}
+
+const char * ShrubberyCreationForm::TreeCreationFailed::what() const throw()
+{
+    return "Tree Creation Failed (Can't creat a tree)";
 }

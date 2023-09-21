@@ -6,7 +6,7 @@
 /*   By: rrasezin <rrasezin@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/09/16 19:11:02 by rrasezin          #+#    #+#             */
-/*   Updated: 2023/09/19 22:04:22 by rrasezin         ###   ########.fr       */
+/*   Updated: 2023/09/20 17:46:18 by rrasezin         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -55,7 +55,7 @@ class	Form::GradeTooLowException : public std::exception
 class	Form::AlreadySigned : public std::exception
 {
 	public :
-		const char *checkSigne() const;
+		const char * what() const throw();
 };
 
 std::ostream& operator<<(std::ostream& stream , const Form& f);

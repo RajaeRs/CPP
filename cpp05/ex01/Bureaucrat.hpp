@@ -6,7 +6,7 @@
 /*   By: rrasezin <rrasezin@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/09/14 17:13:17 by rrasezin          #+#    #+#             */
-/*   Updated: 2023/09/19 18:53:07 by rrasezin         ###   ########.fr       */
+/*   Updated: 2023/09/20 17:42:55 by rrasezin         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -31,7 +31,7 @@ class   Bureaucrat
 		int			getGrade(void) const;
 		void		incrementBureaucratGarde();
 		void		decrementBureaucratGarde();
-		void		signForm(std::string name, bool signe, std::string message) const;
+		void		signForm(Form& form);
 		class		GradeTooHighException;
 		class		GradeTooLowException;
 		~Bureaucrat();

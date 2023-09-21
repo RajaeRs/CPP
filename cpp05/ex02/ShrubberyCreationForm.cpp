@@ -6,7 +6,7 @@
 /*   By: rrasezin <rrasezin@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/09/19 22:52:49 by rrasezin          #+#    #+#             */
-/*   Updated: 2023/09/20 00:42:42 by rrasezin         ###   ########.fr       */
+/*   Updated: 2023/09/20 16:30:43 by rrasezin         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -22,7 +22,7 @@ ShrubberyCreationForm::ShrubberyCreationForm(std::string name) : AForm(name, 72,
     this->setSigne(false);
 }
 
-ShrubberyCreationForm::ShrubberyCreationForm(const ShrubberyCreationForm& copy)
+ShrubberyCreationForm::ShrubberyCreationForm(const ShrubberyCreationForm& copy) : AForm(copy)
 {
 	this->setSigne(copy.getSigne());
 }
@@ -33,27 +33,22 @@ ShrubberyCreationForm& ShrubberyCreationForm::operator=(const ShrubberyCreationF
     return (*this);
 }
 
-ShrubberyCreationForm::~ShrubberyCreationForm()
-{
-    std::cout << "Shrubbery Destroctor called" << std::endl; 
-}
+ShrubberyCreationForm::~ShrubberyCreationForm(){};
 
 void    ShrubberyCreationForm::execute(Bureaucrat const & executor) const
 {
-    // if (!this->getSigne())
-    // {
-    //     std::cout << "\n most throw an exception \n" << std::endl;
-    // }
     std::ofstream   shrubbery;
-    std::string treeName;
+    std::string     treeName;
 
     treeName = executor.getName() + "_" + "shrubbery";
-    
+    if (!this->getSigne())
+        throw ShrubberyCreationForm::NotSigned();
+    if (this->getBureaucratGarde() < executor.getGrade())
+        throw ShrubberyCreationForm::GradeTooLowException();
     shrubbery.open(treeName);
     if (!shrubbery.is_open())
     {
-        std::cerr << "Error opening file" << std::endl;
-        //throw an exeption
+        throw ShrubberyCreationForm::TreeCreationFailed();
     }
     shrubbery << "\n"
             << "        ; ; ;\n"
@@ -79,4 +74,9 @@ void    ShrubberyCreationForm::execute(Bureaucrat const & executor) const
             << "              .::(@:."
             << std::endl;
     shrubbery.close();
+}
+
+const char * ShrubberyCreationForm::TreeCreationFailed::what() const throw()
+{
+    return "Tree Creation Failed (Can't creat a tree)";
 }
