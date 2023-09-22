@@ -6,7 +6,7 @@
 /*   By: rrasezin <rrasezin@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/09/15 10:32:59 by rrasezin          #+#    #+#             */
-/*   Updated: 2023/09/21 15:21:21 by rrasezin         ###   ########.fr       */
+/*   Updated: 2023/09/22 11:05:14 by rrasezin         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -18,11 +18,13 @@ int main()
     {
         Intern someRandomIntern;
         AForm* rrf;
-        rrf = someRandomIntern.makeForm("PresidentialPardonForm", "Bender");
-        std::cout << *rrf << std::endl;   
+        rrf = someRandomIntern.makeForm("ShrubberyCreationForm", "Bender");
+        std::cout << *rrf << std::endl;
+        delete rrf; 
     }
     catch(std::exception &exp)
     {
         std::cout << exp.what() << std::endl;
     }
+    return (0);
 }

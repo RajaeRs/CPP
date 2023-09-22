@@ -6,7 +6,7 @@
 /*   By: rrasezin <rrasezin@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/09/19 22:46:34 by rrasezin          #+#    #+#             */
-/*   Updated: 2023/09/20 15:47:20 by rrasezin         ###   ########.fr       */
+/*   Updated: 2023/09/22 10:28:25 by rrasezin         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -24,7 +24,7 @@ class   ShrubberyCreationForm : public AForm
         ShrubberyCreationForm& operator=(const ShrubberyCreationForm& assignement);
         void    execute(Bureaucrat const & executor) const;
 		class	TreeCreationFailed;
-        ~ShrubberyCreationForm();
+        virtual ~ShrubberyCreationForm();
 };
 
 class	ShrubberyCreationForm::TreeCreationFailed : public std::exception

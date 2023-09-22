@@ -6,7 +6,7 @@
 /*   By: rrasezin <rrasezin@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/09/15 10:32:59 by rrasezin          #+#    #+#             */
-/*   Updated: 2023/09/20 17:48:09 by rrasezin         ###   ########.fr       */
+/*   Updated: 2023/09/22 10:51:43 by rrasezin         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -17,7 +17,7 @@ int main()
 {
     try
     {
-        Bureaucrat mark("Mark", 100);
+        Bureaucrat mark("Mark", 5);
         mark.incrementBureaucratGarde();
         try
         {
