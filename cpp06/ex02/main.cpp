@@ -5,26 +5,18 @@
 /*                                                    +:+ +:+         +:+     */
 /*   By: rrasezin <rrasezin@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2023/09/15 10:32:59 by rrasezin          #+#    #+#             */
-/*   Updated: 2023/09/22 11:32:49 by rrasezin         ###   ########.fr       */
+/*   Created: 2023/09/27 16:04:28 by rrasezin          #+#    #+#             */
+/*   Updated: 2023/09/27 16:44:03 by rrasezin         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "Intern.hpp"
+#include "Base.hpp"
 
 int main()
 {
-    try
-    {
-        Intern someRandomIntern;
-        AForm* rrf;
-        rrf = someRandomIntern.makeForm("ShrubberyCreationForm", "Bender");
-        std::cout << *rrf << std::endl;
-        delete rrf; 
-    }
-    catch(std::exception &exp)
-    {
-        std::cout << exp.what() << std::endl;
-    }
+    Base *t = generate();
+    B bType;
+    identiy(t);
+    identiy(&bType);
     return (0);
 }

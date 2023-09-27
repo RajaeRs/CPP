@@ -6,7 +6,7 @@
 /*   By: rrasezin <rrasezin@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/09/25 12:06:46 by rrasezin          #+#    #+#             */
-/*   Updated: 2023/09/25 15:35:11 by rrasezin         ###   ########.fr       */
+/*   Updated: 2023/09/27 12:39:23 by rrasezin         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -14,6 +14,7 @@
 
 #include <iostream>
 #include <cctype>
+#include <cmath>
 
 class   ScalarConverter
 {

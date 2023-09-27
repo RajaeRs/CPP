@@ -1,30 +1,31 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   main.cpp                                           :+:      :+:    :+:   */
+/*   Base.hpp                                           :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: rrasezin <rrasezin@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2023/09/15 10:32:59 by rrasezin          #+#    #+#             */
-/*   Updated: 2023/09/22 11:32:49 by rrasezin         ###   ########.fr       */
+/*   Created: 2023/09/27 16:01:21 by rrasezin          #+#    #+#             */
+/*   Updated: 2023/09/27 16:45:57 by rrasezin         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "Intern.hpp"
+#pragma once
 
-int main()
+#include <iostream>
+
+class   Base
 {
-    try
-    {
-        Intern someRandomIntern;
-        AForm* rrf;
-        rrf = someRandomIntern.makeForm("ShrubberyCreationForm", "Bender");
-        std::cout << *rrf << std::endl;
-        delete rrf; 
-    }
-    catch(std::exception &exp)
-    {
-        std::cout << exp.what() << std::endl;
-    }
-    return (0);
-}
+	public:
+		virtual ~Base(){};
+};
+
+class A : public Base{};
+class B : public Base{};
+class C : public Base{};
+
+Base* generate(void);
+
+void	identiy(Base* p);
+
+void	identiy(Base& p);

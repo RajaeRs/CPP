@@ -1,8 +1,8 @@
-NAME = converte
+NAME = realType
 
-HEADER = ScalarConverter.hpp
+HEADER = Base.hpp
 
-SRC = main.cpp ScalarConverter.cpp
+SRC = main.cpp Base.cpp
 
 OBJ = $(SRC:.cpp=.o)
 

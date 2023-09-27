@@ -1,8 +1,8 @@
-NAME = converte
+NAME = serializer
 
-HEADER = ScalarConverter.hpp
+HEADER = Serializer.hpp
 
-SRC = main.cpp ScalarConverter.cpp
+SRC = main.cpp Serializer.cpp
 
 OBJ = $(SRC:.cpp=.o)
 

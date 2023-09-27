@@ -6,7 +6,7 @@
 /*   By: rrasezin <rrasezin@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/09/25 12:14:04 by rrasezin          #+#    #+#             */
-/*   Updated: 2023/09/25 16:10:28 by rrasezin         ###   ########.fr       */
+/*   Updated: 2023/09/27 12:39:16 by rrasezin         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -46,7 +46,7 @@ void	ScalarConverter::setDouble(double d)
 }
 
 int ScalarConverter::whishDataTypeIs(std::string input)
-{
+{			
 	if (input.length() == 1 && std::isprint(input[0]) && !std::isdigit(input[0]))
 	{
 		setChar(input[0]);
@@ -128,8 +128,9 @@ void	ScalarConverter::fromDouble(std::string input) const
 	try
 	{
 		std::stof(input);
+		double fractional_part = std::fmod(this->d, 1.0);
 		std::cout << "float : " << static_cast<float>(this->d);
-		if (input.find('.') == std::string::npos)
+		if (fractional_part == 0.0)
 			std::cout << ".0f" << std::endl;
 		else
 			std::cout << 'f' << std::endl;
@@ -138,8 +139,9 @@ void	ScalarConverter::fromDouble(std::string input) const
 	{
 		std::cout << "float : " << "impossible" << std::endl;
 	}
+	double fractional_part = std::fmod(this->d, 1.0);
 	std::cout << "double : " << this->d ;
-	if (input.find('.') == std::string::npos)
+	if (fractional_part == 0.0)
 		std::cout << ".0" << std::endl;
 	else
 		std::cout << std::endl;

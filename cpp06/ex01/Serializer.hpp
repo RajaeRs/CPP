@@ -1,30 +1,32 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   main.cpp                                           :+:      :+:    :+:   */
+/*   Serializer.hpp                                     :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: rrasezin <rrasezin@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2023/09/15 10:32:59 by rrasezin          #+#    #+#             */
-/*   Updated: 2023/09/22 11:32:49 by rrasezin         ###   ########.fr       */
+/*   Created: 2023/09/27 12:47:59 by rrasezin          #+#    #+#             */
+/*   Updated: 2023/09/27 15:37:56 by rrasezin         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "Intern.hpp"
+#pragma once
 
-int main()
+#include <iostream>
+#include <cstdint>
+
+typedef	struct s_data
 {
-    try
-    {
-        Intern someRandomIntern;
-        AForm* rrf;
-        rrf = someRandomIntern.makeForm("ShrubberyCreationForm", "Bender");
-        std::cout << *rrf << std::endl;
-        delete rrf; 
-    }
-    catch(std::exception &exp)
-    {
-        std::cout << exp.what() << std::endl;
-    }
-    return (0);
-}
+	std::string	name;
+}				Data;
+
+class	Serializer
+{
+	public :
+		Serializer();
+		Serializer(const Serializer& copy);
+		Serializer& operator=(const Serializer& assignement);
+		static	uintptr_t serialize(Data* ptr);
+		static	Data* deserialize(uintptr_t raw);
+		~Serializer();
+};

@@ -5,26 +5,22 @@
 /*                                                    +:+ +:+         +:+     */
 /*   By: rrasezin <rrasezin@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2023/09/15 10:32:59 by rrasezin          #+#    #+#             */
-/*   Updated: 2023/09/22 11:32:49 by rrasezin         ###   ########.fr       */
+/*   Created: 2023/09/27 13:58:58 by rrasezin          #+#    #+#             */
+/*   Updated: 2023/09/27 15:48:08 by rrasezin         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "Intern.hpp"
+#include "Serializer.hpp"
 
 int main()
 {
-    try
-    {
-        Intern someRandomIntern;
-        AForm* rrf;
-        rrf = someRandomIntern.makeForm("ShrubberyCreationForm", "Bender");
-        std::cout << *rrf << std::endl;
-        delete rrf; 
-    }
-    catch(std::exception &exp)
-    {
-        std::cout << exp.what() << std::endl;
-    }
-    return (0);
+    Data        *ptr;
+	uintptr_t	i;
+
+	i = 5;
+	ptr = Serializer::deserialize(i);
+    int p = Serializer::serialize(ptr);
+	std::cout << "i : " << i << std::endl;
+	std::cout << "p : " << p << std::endl;
+	return (0);
 }
