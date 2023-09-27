@@ -6,7 +6,7 @@
 /*   By: rrasezin <rrasezin@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/09/25 12:43:07 by rrasezin          #+#    #+#             */
-/*   Updated: 2023/09/25 12:59:44 by rrasezin         ###   ########.fr       */
+/*   Updated: 2023/09/27 17:41:04 by rrasezin         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -14,9 +14,8 @@
 
 int main(int ac, char **av)
 {
-    ScalarConverter convert;
-
     if (ac != 2)
         return (0);
-    convert.method(av[1]);
+    else
+        ScalarConverter::method(av[1]);
 }
