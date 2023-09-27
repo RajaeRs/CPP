@@ -6,7 +6,7 @@
 /*   By: rrasezin <rrasezin@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/09/27 16:05:42 by rrasezin          #+#    #+#             */
-/*   Updated: 2023/09/27 16:46:14 by rrasezin         ###   ########.fr       */
+/*   Updated: 2023/09/27 16:51:45 by rrasezin         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -46,7 +46,7 @@ void	identiy(Base* p)
 	else if (typeC)
 		std::cout << "The type of class is : C." << std::endl;
 	else
-		std::cout << "Doesn't math with any type" << std::endl;
+		std::cout << "Doesn't match with any type" << std::endl;
 }
 
 void	identiy(Base& p)
@@ -62,5 +62,5 @@ void	identiy(Base& p)
 	else if (&typeC == &p)
 		std::cout << "The type of class is : C." << std::endl;
 	else
-		std::cout << "Doesn't math with any type" << std::endl;
+		std::cout << "Doesn't match with any type" << std::endl;
 }
