@@ -1,6 +1,6 @@
-NAME = templateT
+NAME = array
 
-HEADER = whatever.hpp
+HEADER = Array.hpp
 
 SRC = main.cpp
 

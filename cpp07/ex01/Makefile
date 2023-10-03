@@ -1,6 +1,6 @@
-NAME = templateT
+NAME = iter
 
-HEADER = whatever.hpp
+HEADER = iter.hpp
 
 SRC = main.cpp
 

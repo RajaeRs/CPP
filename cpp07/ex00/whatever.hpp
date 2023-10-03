@@ -1,28 +1,32 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   templateT.cpp                                      :+:      :+:    :+:   */
+/*   whatever.hpp                                       :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: rrasezin <rrasezin@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2023/09/29 09:10:53 by rrasezin          #+#    #+#             */
-/*   Updated: 2023/09/29 09:55:29 by rrasezin         ###   ########.fr       */
+/*   Created: 2023/09/29 09:05:47 by rrasezin          #+#    #+#             */
+/*   Updated: 2023/09/29 12:07:47 by rrasezin         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "templateT.hpp"
+#pragma once
 
-void    swap(T *first, T *second)
+#include <iostream>
+
+template<typename T>
+void    swap(T &first, T &second)
 {
     T tmp;
 
-    tmp = *first;
-    *first = *second;
-    *second = tmp;
+    tmp = first;
+    first = second;
+    second = tmp;
     return ;
 }
 
-T   min(T first, T second)
+template<typename T>
+T   min(T &first, T &second)
 {
     if (second <= first)
         return (second);
@@ -30,7 +34,8 @@ T   min(T first, T second)
         return (first);
 }
 
-T   max(T first, T second)
+template<typename T>
+T   max(T &first, T &second)
 {
     if (second >= first)
         return (second);

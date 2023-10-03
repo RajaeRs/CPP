@@ -6,21 +6,28 @@
 /*   By: rrasezin <rrasezin@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/09/29 09:51:12 by rrasezin          #+#    #+#             */
-/*   Updated: 2023/09/29 09:53:42 by rrasezin         ###   ########.fr       */
+/*   Updated: 2023/09/29 12:07:54 by rrasezin         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "templateT.hpp"
+#include "whatever.hpp"
+
 
 int main()
 {
-    int m = 5;
-    int n = 60;
+	int a = 2;
+	int b = 3;
+	swap(a, b);
+	std::cout << "a = " << a << " b = " << b << std::endl;
+	std::cout << "min(a, b) = " << min(a, b) << std::endl;
+	std::cout << "max(a, b) = " << max(a, b) << std::endl;
 
-    std::cout << "Min : " << min(m, n) << std::endl;
-    std::cout << "Max : " << max(m, n) << std::endl;
-    swap(&m, &n);
-    std::cout << "value of m : " << m << std::endl;
-    std::cout << "value of n : " << n << std::endl;
-
+	std::string c = "chaine1";
+	std::string d = "chaine2";
+	swap(c, d);
+	std::cout << "c = " << c << " d = " << d << std::endl;
+	std::cout << "min(c, d) = " << min(c, d) << std::endl;
+	std::cout << "max(c, d) = " << max(c, d) << std::endl;
+	return (0);
+	
 }

@@ -1,21 +1,28 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   templateT.hpp                                      :+:      :+:    :+:   */
+/*   main.cpp                                           :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: rrasezin <rrasezin@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2023/09/29 09:05:47 by rrasezin          #+#    #+#             */
-/*   Updated: 2023/09/29 09:59:39 by rrasezin         ###   ########.fr       */
+/*   Created: 2023/09/30 14:42:45 by rrasezin          #+#    #+#             */
+/*   Updated: 2023/09/30 15:28:04 by rrasezin         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#pragma once
+#include "iter.hpp"
 
-#include <iostream>
+int main()
+{
+    int integer[10] = {1, 2, 3, 4, 5, 6, 7, 8, 9, 10};
+    iter<int>(integer, 10, func);
 
-template<typename T>
+    char character[10] = {'0', '1', '2', '3', '4', '5', '6', '7', '8', '9'};
+    iter<char>(character, 10, func);
 
-void    swap(T *first, T *second);
-T    max(T first, T second);
-T    min(T first, T second);
+    std::cout << "Integer : ";
+    print<int>(integer, 10);
+
+    std::cout << "Character : ";
+    print<char>(character, 10);
+}
