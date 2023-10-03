@@ -6,7 +6,7 @@ SRC = main.cpp
 
 OBJ = $(SRC:.cpp=.o)
 
-CC = c++
+CC = g++
 
 FLAGE = -Wall -Wextra -Werror -std=c++98
 

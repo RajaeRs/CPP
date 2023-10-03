@@ -6,7 +6,7 @@
 /*   By: rrasezin <rrasezin@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/10/02 13:28:01 by rrasezin          #+#    #+#             */
-/*   Updated: 2023/10/03 15:45:50 by rrasezin         ###   ########.fr       */
+/*   Updated: 2023/10/03 18:39:02 by rrasezin         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -48,7 +48,7 @@ class   TemplateClass
         }
         TemplateClass& operator=(const TemplateClass& assignement)
         {
-            delete this->arr;
+            delete[] this->arr;
             int s = assignement.size();
             int i = 0;
             this->arr = new Array[s];
@@ -84,6 +84,6 @@ class   TemplateClass
         };
         ~TemplateClass()
         {
-            delete this->arr;
+            delete[] this->arr;
         }
 };
