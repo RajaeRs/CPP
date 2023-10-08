@@ -1,6 +1,6 @@
-NAME = array
+NAME =  easyfind
 
-HEADER = Array.hpp
+HEADER =  easyfind.hpp
 
 SRC = main.cpp
 

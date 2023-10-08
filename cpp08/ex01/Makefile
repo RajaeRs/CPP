@@ -1,8 +1,8 @@
-NAME = array
+NAME =  span
 
-HEADER = Array.hpp
+HEADER =  Span.hpp
 
-SRC = main.cpp
+SRC = main.cpp Span.cpp
 
 OBJ = $(SRC:.cpp=.o)
 
