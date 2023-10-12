@@ -2,7 +2,7 @@ NAME =  span
 
 HEADER =  MutantStack.hpp
 
-SRC = main.cpp MutantStack.cpp
+SRC = main.cpp 
 
 OBJ = $(SRC:.cpp=.o)
 
