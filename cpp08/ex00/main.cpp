@@ -6,20 +6,18 @@
 /*   By: rrasezin <rrasezin@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/10/06 22:40:18 by rrasezin          #+#    #+#             */
-/*   Updated: 2023/10/06 23:36:37 by rrasezin         ###   ########.fr       */
+/*   Updated: 2023/10/12 13:21:09 by rrasezin         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "easyfind.hpp"
-#include <vector>
 #include <list>
-#include <deque>
 
 int main()
 {
     try
     {
-        std::vector<int> nbr;
+        std::list<int> nbr;
 
         nbr.push_back(1);
         nbr.push_back(2);
