@@ -1,6 +1,18 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
+/*   list.cpp                                           :+:      :+:    :+:   */
+/*                                                    +:+ +:+         +:+     */
+/*   By: rrasezin <rrasezin@student.42.fr>          +#+  +:+       +#+        */
+/*                                                +#+#+#+#+#+   +#+           */
+/*   Created: 2023/11/01 17:36:25 by rrasezin          #+#    #+#             */
+/*   Updated: 2023/11/01 17:43:09 by rrasezin         ###   ########.fr       */
+/*                                                                            */
+/* ************************************************************************** */
+
+/* ************************************************************************** */
+/*                                                                            */
+/*                                                        :::      ::::::::   */
 /*   mergeSort.cpp                                      :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: rrasezin <rrasezin@student.42.fr>          +#+  +:+       +#+        */
@@ -11,15 +23,15 @@
 /* ************************************************************************** */
 
 #include <iostream>
-#include <vector>
+#include <deque>
 #include <sstream>
 #include <algorithm>
 int g_size;
 int cmp;
-std::pair<int, int>*	get_position(std::vector<int> data, int sPeer);
-void	printData(std::vector<int>& data, int sPeer)
+std::pair<int, int>*	get_position(std::deque<int> data, int sPeer);
+void	printData(std::deque<int>& data, int sPeer)
 {
-	std::vector<int>::iterator it = data.begin();
+	std::deque<int>::iterator it = data.begin();
 	int i = 0;
 	while (it != data.end())
 	{
@@ -49,9 +61,9 @@ void	printData(std::vector<int>& data, int sPeer)
 //   return first;
 // }
 
-typedef std::vector<int>::iterator iterator;
+typedef std::deque<int>::iterator iterator;
 
-void	mouveFromTo(std::vector<int>& data, iterator &to, int sPree)
+void	mouveFromTo(std::deque<int>& data, iterator &to, int sPree)
 {
 	iterator from, end;
 	int size, m, middel = 0;
@@ -85,9 +97,9 @@ void	mouveFromTo(std::vector<int>& data, iterator &to, int sPree)
 //dest : i insert data from the first of this par to his second
 
 
-int	get_dest(std::vector<int> data, std::pair<int, int> position, int dist, int sPeer)
+int	get_dest(std::deque<int> data, std::pair<int, int> position, int dist, int sPeer)
 {
-	std::vector<int> max;
+	std::deque<int> max;
 	iterator tmp;
 	
 	tmp = data.begin();
@@ -123,7 +135,7 @@ void	printNewPosition(std::pair<int, int>* position, int pairSize)
 }
 
 
-void	insertion_old(std::vector<int> &data, iterator &bmch, int sPeer)
+void	insertion_old(std::deque<int> &data, iterator &bmch, int sPeer)
 {
 	std::cout << std::endl <<"bmch: "<< *bmch << "\nnPeer: " << sPeer << "\nbegin : "<< *(data.begin()) << std::endl;
 	std::pair<iterator, iterator> src;
@@ -181,10 +193,10 @@ void	insertion_old(std::vector<int> &data, iterator &bmch, int sPeer)
 // bmch : begin of main chain
 // sPree : size of peer
 // eoMC : end of main chain
-void	MainPaindChain(std::vector<int> &data, std::vector<int>::iterator bmch, int sPree)
+void	MainPaindChain(std::deque<int> &data, std::deque<int>::iterator bmch, int sPree)
 {
-	std::vector<int> tmp;
-	std::vector<int>::iterator it = bmch;
+	std::deque<int> tmp;
+	std::deque<int>::iterator it = bmch;
 	int size;
 	int m;
 	
@@ -203,14 +215,14 @@ void	MainPaindChain(std::vector<int> &data, std::vector<int>::iterator bmch, int
 
 // eoP : end of peers
 
-void	MergeSort(std::vector<int>& data, float sPeer)
+void	MergeSort(std::deque<int>& data, float sPeer)
 {
-    std::vector<int>::iterator tmp;
+    std::deque<int>::iterator tmp;
 	if (sPeer <= (g_size/2))
 	{
-        std::vector<int>::iterator first = data.begin();
+        std::deque<int>::iterator first = data.begin();
         std::advance(first, sPeer -1);
-        std::vector<int>::iterator second = first;
+        std::deque<int>::iterator second = first;
         int i = 1;
 		while (i * sPeer * 2 <= g_size)
 		{
@@ -232,7 +244,7 @@ void	MergeSort(std::vector<int>& data, float sPeer)
     int eoP = static_cast<int>(g_size/sPeer) * static_cast<int>(sPeer);
 	if (eoP == sPeer)
 		return ;
-	std::vector<int>::iterator eoMC = data.begin();
+	std::deque<int>::iterator eoMC = data.begin();
 	std::advance(eoMC, eoP);
 
 	MainPaindChain(data, eoMC, sPeer);
@@ -240,7 +252,7 @@ void	MergeSort(std::vector<int>& data, float sPeer)
 
 
 
-std::pair<int, int>*	get_position(std::vector<int> data, int sPeer)
+std::pair<int, int>*	get_position(std::deque<int> data, int sPeer)
 {
 	int size =  (data.size() / sPeer) / 2 ;
 	std::pair<int, int>* position = new std::pair<int, int> [size];
@@ -263,8 +275,8 @@ std::pair<int, int>*	get_position(std::vector<int> data, int sPeer)
 
 int	main(int ac, char **av)
 {
-	std::vector<int> data;
-	std::vector<int> data_copy;
+	std::deque<int> data;
+	std::deque<int> data_copy;
 	std::stringstream ss;
 	int value;
 	int i = 1;
