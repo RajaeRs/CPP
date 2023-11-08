@@ -1,23 +1,23 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   main.cpp                                           :+:      :+:    :+:   */
+/*   mainList.cpp                                       :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: rrasezin <rrasezin@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/11/08 12:43:26 by rrasezin          #+#    #+#             */
-/*   Updated: 2023/11/08 21:45:11 by rrasezin         ###   ########.fr       */
+/*   Updated: 2023/11/08 21:58:26 by rrasezin         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include <vector>
+#include <list>
 #include <sstream>
 #include <iostream>
 
 int g_size;
 int cmp;
 
-typedef std::vector<int>::iterator iterator;
+typedef std::list<int>::iterator iterator;
 
 int jacobsthal(int index)
 {
@@ -29,9 +29,9 @@ int jacobsthal(int index)
 }
 
 
-std::vector<int> build_jacob_insertion_sequence(int len)
+std::list<int> build_jacob_insertion_sequence(int len)
 {
-    std::vector<int> jacob;
+    std::list<int> jacob;
     int jacob_len = 3;
     while(jacobsthal(jacob_len) < len)
     {
@@ -42,9 +42,9 @@ std::vector<int> build_jacob_insertion_sequence(int len)
     
 }
 
-void	printData(std::vector<int>& data, int sPeer, std::string name)
+void	printData(std::list<int>& data, int sPeer, std::string name)
 {
-	std::vector<int>::iterator it = data.begin();
+	std::list<int>::iterator it = data.begin();
     int i = 0;
     std::cout << name << " : ";
 	while (it != data.end())
@@ -58,10 +58,10 @@ void	printData(std::vector<int>& data, int sPeer, std::string name)
 	std::cout << std::endl;
 }
 
-std::vector<int> getPaind(std::vector<int> &data, int sPeer)
+std::list<int> getPaind(std::list<int> &data, int sPeer)
 {
-    std::vector<int>::iterator start = data.begin();
-    std::vector<int> paind;
+    std::list<int>::iterator start = data.begin();
+    std::list<int> paind;
     int i;
 
     while(start != data.end())
@@ -69,8 +69,10 @@ std::vector<int> getPaind(std::vector<int> &data, int sPeer)
         i = 0;
         while (i < sPeer)
         {
+	        printData(data, 1, "data");
             paind.push_back(*start);
             data.erase(start);
+            start++;
             i++;
         }
         i = 0;
@@ -92,14 +94,16 @@ bool	upperComp(int f, int s)
 	return(f<s);
 }
 
-int	get_dest(std::vector<int> data, int position, int sPeer, int val)
+int	get_dest(std::list<int> data, int position, int sPeer, int val)
 {
-	std::vector<int> max;
+	std::list<int> max;
 	iterator tmp;
 	
 	tmp = data.begin();
 	std::advance(tmp, (sPeer - 1));
-	while (tmp != data.end()-1)
+    iterator t = data.end();
+    t--;
+	while (tmp != t)
 	{
 		max.push_back(*tmp);
 		std::advance(tmp, sPeer);
@@ -116,9 +120,9 @@ int	get_dest(std::vector<int> data, int position, int sPeer, int val)
 	return (std::distance(max.begin() , mt));
 }
 
-std::vector<int> get_position(int size)
+std::list<int> get_position(int size)
 {
-	std::vector<int> position;
+	std::list<int> position;
 	int i = 0;
 	while (i < size)
 	{
@@ -129,7 +133,7 @@ std::vector<int> get_position(int size)
 	return position;
 }
 
-void	acrPos(std::vector<int> &position, int index)
+void	acrPos(std::list<int> &position, int index)
 {
 	iterator it = position.begin();
 	int size = position.size();
@@ -144,13 +148,13 @@ void	acrPos(std::vector<int> &position, int index)
 }
 
 
-void	MainChain(std::vector<int> &data, std::vector<int>::iterator bmch, int sPeer)
+void	MainChain(std::list<int> &data, std::list<int>::iterator bmch, int sPeer)
 {
 	
-	std::vector<int> tmp;
-	std::vector<int>::iterator it = bmch;
-	std::vector<int> jacob;
-	std::vector<int> position;
+	std::list<int> tmp;
+	std::list<int>::iterator it = bmch;
+	std::list<int> jacob;
+	std::list<int> position;
 	std::pair<iterator, iterator> src;
 	iterator dest;
 	while (it != data.end())
@@ -159,10 +163,10 @@ void	MainChain(std::vector<int> &data, std::vector<int>::iterator bmch, int sPee
 		data.erase(it);
 	}
     
-    std::vector<int> paind = getPaind(data, sPeer);
+    std::list<int> paind = getPaind(data, sPeer);
     jacob = build_jacob_insertion_sequence(paind.size() / sPeer);
 	jacob.push_back(0);
-	position.reserve(data.size() / sPeer + 1);
+	// position.reserve(data.size() / sPeer + 1);
 	position = get_position(data.size() / sPeer);
 	// printData(jacob, 1 ,"jacob");
 	
@@ -171,15 +175,14 @@ void	MainChain(std::vector<int> &data, std::vector<int>::iterator bmch, int sPee
 	std::advance(src.second, sPeer);
 	data.insert(data.begin(), src.first, src.second);
 	acrPos(position, 0);
-	// printData(position, 1, "position");
 	iterator jtt = jacob.begin();
 	int j = *jtt;
 	int lenght;
 	int size = paind.size()/sPeer -1;
 	int m = 0;
 	int stop;
-	// printData(paind, sPeer, "paind");
-	// printData(data, sPeer, "data");
+	printData(paind, sPeer, "paind");
+	printData(data, sPeer, "data");
 	if (j == 0)
 	{
 		j = 1;
@@ -204,7 +207,9 @@ void	MainChain(std::vector<int> &data, std::vector<int>::iterator bmch, int sPee
 		src.second = src.first;
 		std::advance(src.second, sPeer);
 		// std::cout << "first : " << *src.first << "   j * sPeer : " << j*sPeer << std::endl;
-		lenght = get_dest(data, *tfo, sPeer, *(src.second-1));
+        iterator tmp = src.second;
+        tmp--;
+		lenght = get_dest(data, *tfo, sPeer, *tmp);
 		dest = data.begin();
 		std::advance(dest, lenght*sPeer);
 		data.insert(dest, src.first, src.second);
@@ -231,15 +236,15 @@ void	MainChain(std::vector<int> &data, std::vector<int>::iterator bmch, int sPee
 	data.insert(data.end(),tmp.begin(), tmp.end());
 }
 
-void	MergeSort(std::vector<int>& data, float sPeer)
+void	MergeSort(std::list<int>& data, float sPeer) // good with list
 {
-	data.reserve(g_size + 5);
-    std::vector<int>::iterator tmp;
+	// data.reserve(g_size + 5);
+    std::list<int>::iterator tmp;
 	if (sPeer <= (g_size/2))
 	{
-        std::vector<int>::iterator first = data.begin();
+        std::list<int>::iterator first = data.begin();
         std::advance(first, sPeer -1);
-        std::vector<int>::iterator second = first;
+        std::list<int>::iterator second = first;
         int i = 1;
 		while (i * sPeer * 2 <= g_size)
 		{
@@ -261,14 +266,14 @@ void	MergeSort(std::vector<int>& data, float sPeer)
     int eoP = static_cast<int>(g_size/sPeer) * static_cast<int>(sPeer);
 	if (eoP == sPeer)
 		return ;
-	std::vector<int>::iterator eoMC = data.begin();
+	std::list<int>::iterator eoMC = data.begin();
 	std::advance(eoMC, eoP);
     MainChain(data, eoMC, sPeer);
 }
 
 int main(int ac, char **av)
 {
-    std::vector<int> data;
+    std::list<int> data;
 	std::stringstream ss;
 	int value;
 	int i = 1;
