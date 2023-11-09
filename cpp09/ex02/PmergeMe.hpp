@@ -6,13 +6,13 @@
 /*   By: rrasezin <rrasezin@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/11/09 16:46:37 by rrasezin          #+#    #+#             */
-/*   Updated: 2023/11/09 21:13:44 by rrasezin         ###   ########.fr       */
+/*   Updated: 2023/11/09 22:03:15 by rrasezin         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #pragma once
 
-#define RED "\033[1;31m"
+#define RED "\033[2;31m"
 #define YELLOW_BLOD "\033[1;33m"
 #define YELLOW "\033[0;33m"
 #define RESET "\033[0m"
@@ -44,14 +44,17 @@ container   get_data(int ac, char **av)
 {
     container data;
     std::stringstream ss;
+	std::string nbr;
 	int value;
 	int i = 1;
 
     if(ac < 2)
         throw "write some data!";
-    while (av[i] != NULL)
+    while (av && av[i] != NULL)
 	{
-		ss << av[i];
+		nbr = av[i];
+		nbr += " ";
+		ss << nbr;
 		while (ss >> value)
 		{
 			if (value < 0)
@@ -63,6 +66,8 @@ container   get_data(int ac, char **av)
 		ss.clear();
 		i++;
 	}
+	if (data.size() == 0)
+		throw "Not valid Data";
     return data;
 }
 
@@ -183,5 +188,5 @@ void	print_status(container &data, double t, int c, std::string message)
 					<< " comparaison\n"
                     << std::endl;
 	else
-		std::cout << "\033[31m" << "Not Sorted." << std::endl;
+		std::cout << RED << "Not Sorted.\n" << RESET << std::endl;
 }
